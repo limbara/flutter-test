@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import './screens/Home.dart';
+import './screens/MessagePage.dart';
+import './screens/CameraPage.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Root());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class Root extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,7 +13,59 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: Home(),
+      home: MyApp(),
+    );
+  }
+}
+
+class MyApp extends StatefulWidget {
+  // This widget is the root of your application.
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+  TabController tabController;
+
+  void onClickCamera() {
+    tabController.animateTo(0);
+  }
+
+  void onClickMessage() {
+    tabController.animateTo(2);
+  }
+
+  void onClickStories() {
+    print("Stories");
+  }
+
+  @override
+  void initState() {
+    tabController = TabController(vsync: this, length: 3, initialIndex: 1);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: TabBarView(
+        controller: tabController,
+        children: <Widget>[
+          CameraPage(),
+          Home(this.onClickCamera, this.onClickMessage, this.onClickStories),
+          MessagePage()
+        ],
+      ),
     );
   }
 }
