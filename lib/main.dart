@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'strings.dart';
 import './screens/Home.dart';
 import './screens/MessagePage.dart';
 import './screens/CameraPage.dart';
@@ -9,10 +10,7 @@ class Root extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
+      title: APP_NAME,
       home: MyApp(),
     );
   }

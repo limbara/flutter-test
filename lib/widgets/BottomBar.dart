@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './../styles/variables.dart';
 
 class BottomBar extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       onTap: onTabTapped,
       currentIndex: currentIndex,
       items: [
@@ -29,36 +31,36 @@ class _BottomBarState extends State<BottomBar> {
               Icons.home,
               color: Colors.black,
             ),
-            activeIcon: Icon(Icons.home, color: Colors.deepPurpleAccent),
+            activeIcon: Icon(Icons.home, color: colorPrimaryAccent),
             title: Text('Home')),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
               color: Colors.black,
             ),
-            activeIcon: Icon(Icons.search, color: Colors.deepPurpleAccent),
-            title: Text('Home')),
+            activeIcon: Icon(Icons.search, color: colorPrimaryAccent),
+            title: Text('Search')),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.add_box,
               color: Colors.black,
             ),
-            activeIcon: Icon(Icons.add_box, color: Colors.deepPurpleAccent),
-            title: Text('Home')),
+            activeIcon: Icon(Icons.add_box, color: colorPrimaryAccent),
+            title: Text('Add')),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.favorite_border,
               color: Colors.black,
             ),
-            activeIcon: Icon(Icons.favorite, color: Colors.deepPurpleAccent),
-            title: Text('Home')),
+            activeIcon: Icon(Icons.favorite, color: colorPrimaryAccent),
+            title: Text('Favorite')),
         BottomNavigationBarItem(
             icon: Icon(
               Icons.face,
               color: Colors.black,
             ),
             activeIcon: Icon(Icons.face, color: Colors.deepPurpleAccent),
-            title: Text('Home'))
+            title: Text('User'))
       ],
     );
   }

@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
 import './../widgets/BottomBar.dart';
+import './../widgets/CardPost.dart';
+import './../styles/screens/home.dart';
+import './../styles/variables.dart';
+import './../strings.dart';
 
 class Home extends StatelessWidget {
-  VoidCallback onClickCamera;
-  VoidCallback onClickMessage;
-  VoidCallback onClickStories;
+  final VoidCallback onClickCamera;
+  final VoidCallback onClickMessage;
+  final VoidCallback onClickStories;
 
   Home(this.onClickCamera, this.onClickMessage, this.onClickStories);
-
-  var moviesTitles = ['Inception', 'Heat', 'Spider Man'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Instagram'),
+          backgroundColor: colorWhite,
+          elevation: 1,
+          title: Text(
+            HOME_APP_BAR_TITLE,
+            style: styleAppBarTitle,
+          ),
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(
               Icons.camera_alt,
-              color: Colors.white,
+              color: colorBlack
             ),
             tooltip: 'Stories',
             onPressed: onClickCamera,
@@ -28,7 +35,7 @@ class Home extends StatelessWidget {
             IconButton(
               icon: Icon(
                 Icons.camera_roll,
-                color: Colors.white,
+                color: colorBlack,
               ),
               tooltip: 'Stories',
               onPressed: onClickStories,
@@ -36,49 +43,16 @@ class Home extends StatelessWidget {
             IconButton(
               icon: Icon(
                 Icons.message,
-                color: Colors.white,
+                color: colorBlack,
               ),
               tooltip: 'Message',
               onPressed: onClickMessage,
             )
           ],
         ),
-        body: ListView(
-          shrinkWrap: true,
-          padding: const EdgeInsets.all(20.0),
-          children: moviesTitles.map((title) {
-            return Container(
-                padding: EdgeInsets.all(4),
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      title,
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      title,
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      title,
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      title,
-                      style: TextStyle(fontSize: 30),
-                    ),Text(
-                      title,
-                      style: TextStyle(fontSize: 30),
-                    ),Text(
-                      title,
-                      style: TextStyle(fontSize: 30),
-                    ),Text(
-                      title,
-                      style: TextStyle(fontSize: 30),
-                    )
-                  ],
-                ));
-          }).toList(),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: CardPost(),
         ),
         bottomNavigationBar: BottomBar());
   }
