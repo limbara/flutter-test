@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './MyIconButton.dart';
+import './ProfilePicture.dart';
 import './../styles/widgets/card-post.dart';
 import './../styles/utils.dart';
 import './../styles/variables.dart';
@@ -15,7 +16,11 @@ class CardPost extends StatelessWidget {
         child: Column(
           children: <Widget>[
             titleSection,
-            Image.asset('assets/instagram.png'),
+            FadeInImage.assetNetwork(
+              image: 'https://www.iti.org.uk/images/article-images/Profile-Interview-Photo---Fiona-Gray.jpg',         
+              placeholder: 'assets/instagram.png',
+              fit: BoxFit.cover,
+            ),
             Container(
               padding: paddingAllSmall,
               child: Column(
@@ -61,40 +66,47 @@ class CardPost extends StatelessWidget {
         )
       );
   }
-}
 
-Widget titleSection = Container(
-  padding: paddingAllSmall,
-  child: Row(
-    children: <Widget>[
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'Username',
-              style: styleUserName,
-            ),
-            Text(
-              'Place Name',
-              style: stylePlaceName,
-            )
-          ],
-        )
-      ),
-      MyIconButton(
-        onPressed: (){},
-        icon: Icon(
-          Icons.more_vert,
-          color: colorBlack,
-          size: 30.0,
-        ) 
-      ),
-    ],
-  ),
-);
+  final Widget titleSection = Container(
+    padding: paddingAllSmall,
+    child: Row(
+      children: <Widget>[
+        Container(
+          width: 40,
+          height: 40,
+          padding: paddingRightSmall,
+          child: ProfilePicture(
+            initial: 'AH',
+          ),
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Username',
+                style: styleUserName,
+              ),
+              Text(
+                'Place Name',
+                style: stylePlaceName,
+              )
+            ],
+          )
+        ),
+        MyIconButton(
+          onPressed: (){},
+          icon: Icon(
+            Icons.more_vert,
+            color: colorBlack,
+            size: 30.0,
+          ) 
+        ),
+      ],
+    ),
+  );
 
-Widget actionsSection = Row(
+  final Widget actionsSection = Row(
     children: <Widget>[
       Expanded(
         child: Row(
@@ -141,4 +153,6 @@ Widget actionsSection = Row(
         )
       )
     ],
-);
+  );
+
+}

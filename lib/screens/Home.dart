@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './../widgets/BottomBar.dart';
 import './../widgets/CardPost.dart';
+import './../widgets/ProfileStory.dart';
 import './../styles/screens/home.dart';
 import './../styles/variables.dart';
 import './../strings.dart';
@@ -52,7 +53,14 @@ class Home extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: CardPost(),
+          child: Column(
+            children: <Widget>[
+              ProfileStory(
+                imageUrl: 'https://www.iti.org.uk/images/article-images/Profile-Interview-Photo---Fiona-Gray.jpg',
+              ),
+              CardPost(),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomBar());
   }
