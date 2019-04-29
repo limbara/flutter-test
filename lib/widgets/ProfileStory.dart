@@ -3,9 +3,11 @@ import './ProfilePicture.dart';
 
 class ProfileStory extends StatefulWidget {
   final String imageUrl;
+  final String initial;
 
   ProfileStory({
-    this.imageUrl = ''
+    this.imageUrl = '',
+    this.initial = ''
   });
 
   @override
@@ -66,7 +68,8 @@ class _ProfileStoryState extends State<ProfileStory> with SingleTickerProviderSt
             )
           ),
           child: ProfilePicture(
-            imageUrl: widget.imageUrl
+            imageUrl: widget.imageUrl,
+            initial: widget.initial,
           ),
         );
       },

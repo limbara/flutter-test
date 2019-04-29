@@ -3,6 +3,7 @@ import 'strings.dart';
 import './screens/Home.dart';
 import './screens/MessagePage.dart';
 import './screens/CameraPage.dart';
+import './screens/SearchPage.dart';
 
 void main() => runApp(Root());
 
@@ -11,7 +12,11 @@ class Root extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: APP_NAME,
-      home: MyApp(),
+      initialRoute: '/',
+        routes: <String, WidgetBuilder>{
+        '/': (context) => MyApp(),
+        '/search': (context) => SearchPage(),
+      },
     );
   }
 }

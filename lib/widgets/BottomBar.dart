@@ -11,11 +11,14 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   int currentIndex = 0;
+  int lastIndex = -1;
 
   void onTabTapped(int index) {
-    setState(() {
-      currentIndex = index;
-    });
+    if ( lastIndex != currentIndex ) {
+      setState(() {
+        currentIndex = index;
+      });
+    }
   }
 
   @override
@@ -24,6 +27,8 @@ class _BottomBarState extends State<BottomBar> {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       onTap: onTabTapped,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       currentIndex: currentIndex,
       items: [
         BottomNavigationBarItem(
