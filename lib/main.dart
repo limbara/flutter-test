@@ -4,6 +4,7 @@ import './screens/Home.dart';
 import './screens/MessagePage.dart';
 import './screens/CameraPage.dart';
 import './screens/SearchPage.dart';
+import './screens/LoginPage.dart';
 
 void main() => runApp(Root());
 
@@ -12,11 +13,12 @@ class Root extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: APP_NAME,
-      initialRoute: '/',
-        routes: <String, WidgetBuilder>{
-        '/': (context) => MyApp(),
-        '/search': (context) => SearchPage(),
-      },
+      // initialRoute: '/',
+      //   routes: <String, WidgetBuilder>{
+      //   '/': (context) => MyApp(),
+      //   '/search': (context) => SearchPage(),
+      // },
+      home: LoginPage(),
     );
   }
 }

@@ -20,6 +20,12 @@ const EdgeInsets paddingRightMedium = EdgeInsets.only(right: baseEdgeInsets * 2)
 
 const EdgeInsets paddingRightLarge = EdgeInsets.only(right: baseEdgeInsets * 3);
 
+const EdgeInsets paddingLeftSmall = EdgeInsets.only(left: baseEdgeInsets * 1);
+
+const EdgeInsets paddingLeftMedium = EdgeInsets.only(left: baseEdgeInsets * 2);
+
+const EdgeInsets paddingLeftLarge = EdgeInsets.only(left: baseEdgeInsets * 3);
+
 const EdgeInsets paddingBottomSmall = EdgeInsets.only(bottom: baseEdgeInsets * 1);
 
 const EdgeInsets paddingBottomMedium = EdgeInsets.only(bottom: baseEdgeInsets * 2);

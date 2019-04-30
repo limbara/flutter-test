@@ -18,3 +18,5 @@ const Color colorPrimary = Colors.deepPurple;
 const Color colorPrimaryAccent = Colors.deepPurpleAccent;
 
 const Color colorGreylight = Color(0xFFBDBDBD);
+
+const Color colorGrey = Color(0xFF757575);
